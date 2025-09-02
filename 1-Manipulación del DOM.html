@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulación del DOM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 class="Titulo">Ejercicios básicos de manipulación del DOM con JavaScript</h1>
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio 1</h2>
+                <div class="cuerpo">
+                    <p>En este ejemplo, seleccionaremos elementos del DOM usando diferentes métodos.</p>
+                    <p>
+                    <div id="myDiv" class="myClass">Hello, World!</div>
+                    <button id="changeText">Change Text</button><br>
+                    <script>
+                        // Seleccionar un elemento por ID
+                        document.write("Seleccionar un elemento por ID: ");
+                        const myDiv = document.getElementById('myDiv');
+                        document.write("myDiv");
+                        document.write(myDiv);
+
+                        // Seleccionar elementos por clase
+                        document.write("Seleccionar elementos por clase: ");
+                        const elementsByClass = document.getElementsByClassName('myClass');
+                        document.write("elementsByClass");
+                        document.write(elementsByClass);
+
+                        // Seleccionar elementos por etiqueta
+                        document.write("Seleccionar elementos por etiqueta: ");
+                        const elementsByTag = document.getElementsByTagName('div');
+                        document.write("elementsByTag");
+                        document.write(elementsByTag);
+
+                        // Seleccionar un elemento con queryselector
+                        document.write("Seleccionar un elemento con queryselector: ");
+                        const queryElement = document.querySelector('#myDiv');
+                        document.write("queryElement");
+                        document.write(queryElement);
+
+                        // Seleccionar todos los elementos con queryselectorAll
+                        document.write("Seleccionar todos los elementos con queryselectorAll: ");
+                        const queryAllElements = document.querySelectorAll('div');
+                        document.write("queryAllElements");
+                        document.write(queryAllElements);
+                    </script>
+                    </p>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="Imagenes/Screenshot 2025-09-02 093201.png" />
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio 2</h2>
+                <div class="cuerpo">
+                    <p>En este ejemplo, seleccionaremos elementos del DOM usando diferentes métodos.</p>
+                    <p>
+                    <div id="myDiv1">Hello, World!</div>
+                    <button id="changeText2">Change Text</button>
+                    <button id="changeStyle2">Change Style</button>
+                    <script>
+                        const myDiv1 = document.getElementById('myDiv1');
+
+                        // Cambiar el texto del elemento
+                        document.getElementById('changeText2').addEventListener('click', () => {
+                            myDiv1.textContent = 'Text Changed!';
+                        });
+
+                        // Cambiar el estilo del elemento
+                        document.getElementById('changeStyle2').addEventListener('click', () => {
+                            myDiv1.style.color = 'red';
+                            myDiv1.style.fontSize = '24px';
+                        });
+                    </script>
+                    </p>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="Imagenes/Screenshot 2025-09-02 094928.png" />
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio 3</h2>
+                <div class="cuerpo">
+                    <p>En este ejemplo, manejaremos eventos del DOM para interactuar con los elementos de la
+                        página.</p>
+                    <p>
+                    <div id="myDiv2">Click me !</div>
+                    <script>
+                        const myDiv2 = document.getElementById('myDiv2');
+                        // Manejar el evento click
+                        myDiv2.addEventListener('click', () => {
+                            alert('Me has dado click!');
+                            myDiv2.style.backgroundColor = 'lightblue';
+                        });
+                        // Manejar el evento mouseover
+                        myDiv2.addEventListener('mouseover', () => {
+                            myDiv2.style.backgroundColor = 'yellow';
+                        });
+                        // Manejar el evento mouseout
+                        myDiv2.addEventListener('mouseout', () => {
+                            myDiv2.style.backgroundColor
+                        });
+                    </script>
+                    </p>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="Imagenes/Screenshot 2025-09-02 095158.png" />
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio 4</h2>
+                <div class="cuerpo">
+                    <p>Crea una página HTML con varios elementos y utiliza JavaScript para realizar diversas
+                        manipulaciones.</p>
+                    <p>
+                    <h3 id="title">Ejemplo</h3>
+                    <p class="text">Esto es un párrafo</p>
+                    <p class="text">Esto es un párrafo</p>
+
+                    <button id="changeContent">Cambiar contenido</button>
+                    <button id="highlightText">Resaltar texto</button>
+
+                    <script>
+                        // Cambiar el contenido del título
+                        document.getElementById('changeContent').addEventListener('click', () => {
+                            document.getElementById('title').textContent = 'Se cambió el texto';
+                        });
+
+                        // Resaltar todos los párrafos
+                        document.getElementById('highlightText').addEventListener('click', () => {
+                            const paragraphs = document.querySelectorAll('.text');
+                            paragraphs.forEach(p => {
+                                p.classList.toggle('highlight');
+                            });
+                        });
+                    </script>
+                    </p>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="Imagenes/Screenshot 2025-09-02 095429.png" />
+            </div>
+        </div>
+    </div>
+
+    <h1>Ejercicio Personal</h1>
+    <h3>Lista que cambia</h3>
+    <ul>
+        <li class="elementito">Pan</li>
+        <li class="elementito">Bolillo</li>
+        <li class="elementito">Tortilla</li>
+        <li class="elementito">Chilaquiles</li>
+        <li class="elementito">Huevos</li>
+    </ul>
+    <button class="vino">Cambiar viñetas cuadradas</button>
+    <button class="vino1">Cambiar viñetas circulares</button>
+
+    <script>
+        const boton = document.querySelector('.vino');
+        boton.addEventListener('click', () => {
+            const lista = document.querySelectorAll('.elementito');
+            lista.forEach(li => {
+                li.style.listStyleType = 'square';
+            });
+        });
+
+        const boton1 = document.querySelector('.vino1');
+        boton1.addEventListener('click', () => {
+            const lista = document.querySelectorAll('.elementito');
+            lista.forEach(li => {
+                li.style.listStyleType = 'circle';
+            });
+        });
+    </script>
+</body>
+
+</html>
