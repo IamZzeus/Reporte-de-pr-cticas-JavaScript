@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manipulación del DOM</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
 </head>
 
 <body>
@@ -164,35 +169,49 @@
         </div>
     </div>
 
-    <h1>Ejercicio Personal</h1>
-    <h3>Lista que cambia</h3>
-    <ul>
-        <li class="elementito">Pan</li>
-        <li class="elementito">Bolillo</li>
-        <li class="elementito">Tortilla</li>
-        <li class="elementito">Chilaquiles</li>
-        <li class="elementito">Huevos</li>
-    </ul>
-    <button class="vino">Cambiar viñetas cuadradas</button>
-    <button class="vino1">Cambiar viñetas circulares</button>
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio Personal</h2>
+                <div class="cuerpo">
+                    <p>Crea una página HTML con varios elementos y utiliza JavaScript para realizar diversas
+                        manipulaciones.</p>
+                    <p>
+                    <h3>Lista que cambia</h3>
+                    <ul>
+                        <li class="elementito">Pan</li>
+                        <li class="elementito">Bolillo</li>
+                        <li class="elementito">Tortilla</li>
+                        <li class="elementito">Chilaquiles</li>
+                        <li class="elementito">Huevos</li>
+                    </ul>
+                    <button class="vino">Cambiar viñetas cuadradas</button>
 
-    <script>
-        const boton = document.querySelector('.vino');
-        boton.addEventListener('click', () => {
-            const lista = document.querySelectorAll('.elementito');
-            lista.forEach(li => {
-                li.style.listStyleType = 'square';
-            });
-        });
+                    <script>
+                        const boton = document.querySelector('.vino');
+                        boton.addEventListener('click', () => {
+                            const lista = document.querySelectorAll('.elementito');
+                            lista.forEach(li => {
+                                li.style.listStyleType = 'square';
+                            });
+                        });
 
-        const boton1 = document.querySelector('.vino1');
-        boton1.addEventListener('click', () => {
-            const lista = document.querySelectorAll('.elementito');
-            lista.forEach(li => {
-                li.style.listStyleType = 'circle';
-            });
-        });
-    </script>
+                        const liston = document.querySelector('.elementito');
+                        liston.addEventListener('mouseover', () => {
+                            const lista = document.querySelectorAll('.elementito');
+                            lista.forEach(li => {
+                                li.style.listStyleType = 'circle';
+                            });
+                        });
+                    </script>
+                    </p>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="Imagenes/Screenshot 2025-09-02 111249.png" />
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
