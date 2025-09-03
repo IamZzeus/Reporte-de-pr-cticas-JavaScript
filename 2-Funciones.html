@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones basicas</title>
+    <link rel="stylesheet" href="2.css">
+</head>
+
+<body>
+    <h1 class="Titulo">Ejercicios funciones basicas de manipulación de JavaScript</h1>
+    <div class="navegacion-izq">
+        <button onclick="location.href='1-Manipulación del DOM.html'" ;>Manipulacion del DOM</button>
+    </div>
+    <div class="navegacion-der">
+        <button onclick="location.href='3-Funciones de Orden Superior.html'">Funciones de Orden Superior</button>
+    </div>
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio 1</h2>
+                <div class="cuerpo">
+                    <p>Este ejercicio se centra en la creación de funciones para sumar dos números, utilizando tanto la
+                        sintaxis de
+                        función tradicional como la de función flecha, para ello puedes utilizar la consola o un
+                        documento.
+                    </p>
+                    <p>
+                    <h3 id="title">Ejemplo</h3>
+                    Donde a vale 5 y b vale 3, el resultado será 8.
+                    </p>
+                    <button id="tradicional">Tradicional</button>
+                    <button id="flecha">Flecha</button>
+                    <script>
+                        var a = 5;
+                        var b = 3;
+                        function sumar(a, b) {
+                            return a + b;
+                        }
+                        const boton = document.getElementById('tradicional');
+                        boton.addEventListener('click', () => {
+                            alert("El resultado de la funcion tradicional es: " + sumar(a, b));
+                        });
+
+                        const boton2 = document.getElementById('flecha');
+                        boton2.addEventListener('click', () => {
+                            const sumarFlecha = (a, b) => a + b;
+                            alert("El resultado de la funcion flecha es: " + sumarFlecha(a, b));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <p>
+                <h3 id="title">Funcion tradicional</h3>
+                function sumar(a, b) {
+                return a + b;
+                }
+                </p>
+                <p>
+                <h3 id="title">Funcion flecha</h3>
+                const sumarFlecha = (a, b) => a + b;
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio 2</h2>
+                <div class="cuerpo">
+                    <p>Manejando el caso de división por cero.</p>
+                    <p>
+                    <h3 id="title">Ejemplo</h3>
+                    Donde a vale 8 y b vale 2, el resultado será 8.
+                    </p>
+                    <button id="tradicional-1">Tradicional</button>
+                    <button id="flecha-1">Flecha</button>
+                    <script>
+                        var c = 8;
+                        var d = 2;
+                        function divicion(c, d) {
+                            if (d === 0) {
+                                return 'Error: División por cero';
+                            }
+                            return c / d;
+                        }
+                        const boton3 = document.getElementById('tradicional-1');
+                        boton3.addEventListener('click', () => {
+                            alert("El resultado de la funcion tradicional es: " + divicion(c, d));
+                        });
+
+                        const boton4 = document.getElementById('flecha-1');
+                        boton4.addEventListener('click', () => {
+                            const dividirFlecha = (a, b) => b === 0 ? 'Error: División por cero' : a / b;
+                            alert("El resultado de la funcion flecha es: " + dividirFlecha(a, b));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <p>
+                <h3 id="title">Funcion tradicional</h3>
+                function dividir(a, b) {
+                if (b === 0) {
+                return 'Error: División por cero'; }
+                return a / b;
+                }
+                </p>
+                <p>
+                <h3 id="title">Funcion flecha</h3>
+                const dividirFlecha = (a, b) => b === 0 ? 'Error: División por cero' : a / b;
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio 3</h2>
+                <div class="cuerpo">
+                    <p>Potencia de un número</p>
+                    <p>
+                    <h3 id="title">Ejemplo</h3>
+                    Donde a vale 2 y b vale 3, el resultado será 8.
+                    </p>
+                    <button id="tradicional-2">Tradicional</button>
+                    <button id="flecha-2">Flecha</button>
+                    <script>
+                        a = 2;
+                        b = 3;
+                        function potencia(base, exponente) {
+                            return Math.pow(base, exponente);
+                        }
+                        const boton5 = document.getElementById('tradicional-2');
+                        boton5.addEventListener('click', () => {
+                            alert("El resultado de la funcion tradicional es: " + potencia(a, b));
+                        });
+
+                        const boton6 = document.getElementById('flecha-2');
+                        boton6.addEventListener('click', () => {
+                            const potenciaFlecha = (base, exponente) => Math.pow(base, exponente);
+                            alert("El resultado de la funcion flecha es: " + potenciaFlecha(a, b));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <p>
+                <h3 id="title">Funcion tradicional</h3>
+                function potencia(base, exponente) {
+                return Math.pow(base, exponente);
+                }
+                </p>
+                <p>
+                <h3 id="title">Funcion flecha</h3>
+                const potenciaFlecha = (base, exponente) =>
+                Math.pow(base, exponente);
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio 4</h2>
+                <div class="cuerpo">
+                    <p>Mayor de 2 números</p>
+                    <p>
+                    <h3 id="title">Ejemplo</h3>
+                    Donde a vale 5 y b vale 10, el resultado será 8.
+                    </p>
+                    <button id="tradicional-3">Tradicional</button>
+                    <button id="flecha-3">Flecha</button>
+                    <script>
+                        num1 = 5;
+                        num2 = 10;
+                        function mayor(num1, num2) { if (num1 > num2) { return num1; } else { return num2; } }
+                        const boton7 = document.getElementById('tradicional-3');
+                        boton7.addEventListener('click', () => {
+                            alert("El resultado de la funcion tradicional es: " + mayor(num1, num2));
+                        });
+                        const boton8 = document.getElementById('flecha-3');
+                        boton8.addEventListener('click', () => {
+                            const mayorFlecha = (num1, num2) => (num1 > num2) ? num1 : num2;
+                            alert("El resultado de la funcion flecha es: " + mayorFlecha(num1, num2));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <p>
+                <h3 id="title">Funcion tradicional</h3>
+                function potencia(base, exponente) {
+                return Math.pow(base, exponente);
+                }
+                </p>
+                <p>
+                <h3 id="title">Funcion flecha</h3>
+                const potenciaFlecha = (base, exponente) =>
+                Math.pow(base, exponente);
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio 5</h2>
+                <div class="cuerpo">
+                    <p>Ejercicio Personal, crea 2 ejemplos personales de función tradicional y función flecha.</p>
+                    <p>
+                    <h3 id="title">Area de un rectangulo</h3>
+                    Se calcula el area de un rectangulo multiplicando la base por la altura.
+                    </p>
+                    <button id="tradicional-4">Tradicional</button>
+                    <button id="flecha-4">Flecha</button>
+                    <script>
+                        function BaseR(base, altura) {
+                            return base * altura;
+                        }
+                        const boton9 = document.getElementById('tradicional-4');
+                        boton9.addEventListener('click', () => {
+                            var base = parseFloat(prompt("Ingresa la base del rectángulo"));
+                            var altura = parseFloat(prompt("Ingresa la altura del rectángulo"));
+                            alert("El resultado de la funcion tradicional es: " + BaseR(base, altura));
+                        });
+
+                        const boton10 = document.getElementById('flecha-4');
+                        boton10.addEventListener('click', () => {
+                            var base = parseFloat(prompt("Ingresa la base del rectángulo"));
+                            var altura = parseFloat(prompt("Ingresa la altura del rectángulo"));
+                            BaseFF = (base, altura) => base * altura;
+                            alert("El resultado de la funcion flecha es: " + BaseFF(base, altura));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <p>
+                <h3 id="title">Funcion tradicional</h3>
+                function BaseR(base, altura) {
+                return base * altura;
+                }
+                </p>
+                <p>
+                <h3 id="title">Funcion flecha</h3>
+                BaseFF = (base, altura) => base * altura;
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio 6</h2>
+                <div class="cuerpo">
+                    <p>Ejercicio Personal, crea 2 ejemplos personales de función tradicional y función flecha.</p>
+                    <p>
+                    <h3 id="title">Factorial</h3>
+                    Se calcula el factorial de un numero
+                    </p>
+                    <button id="tradicional-5">Tradicional</button>
+                    <button id="flecha-5">Flecha</button>
+                    <script>
+                        function Fact(factorial) {
+                            for (let i = factorial - 1; i >= 1; i--) {
+                                resultado = factorial *= i;
+                            }
+                            return resultado;
+                        }
+                        const boton11 = document.getElementById('tradicional-5');
+                        boton11.addEventListener('click', () => {
+                            factorial = parseInt(prompt("Ingresa un numero para calcular su factorial"));
+                            alert("El resultado de la funcion tradicional es: " + Fact(factorial));
+                        });
+
+                        const boton12 = document.getElementById('flecha-5');
+                        boton12.addEventListener('click', () => {
+                            const Factor = (factorial) => {
+                                let resultado = factorial;
+                                for (let i = factorial - 1; i >= 1; i--) {
+                                    resultado *= i;
+                                }
+                                return resultado;
+                            };
+                            factorial = parseInt(prompt("Ingresa un numero para calcular su factorial"));
+                            alert("El resultado de la funcion tradicional es: " + Factor(factorial));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <p>
+                <h3 id="title">Funcion tradicional</h3>
+                function Fact(factorial) {
+                for (let i = factorial - 1; i >= 1; i--) {
+                resultado = factorial *= i;
+                }
+                return resultado;
+                }
+                </p>
+                <p>
+                <h3 id="title">Funcion flecha</h3>
+                const Factor = (factorial) => {
+                let resultado = factorial;
+                for (let i = factorial - 1; i >= 1; i--) {
+                resultado *= i;
+                }
+                return resultado;
+                };
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
