@@ -84,3 +84,11 @@ h2 {
     top: 20px; 
     right: 20px;
 }
+
+.contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+}

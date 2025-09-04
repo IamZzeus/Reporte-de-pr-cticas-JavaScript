@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures en JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 class="Titulo">Closures en JavaScript</h1>
+    <div class="navegacion-izq">
+        <button onclick="location.href='3-Funciones de Orden Superior.html'" ;>Funciones de Orden Superior</button>
+    </div>
+    <div class="navegacion-der">
+        <button onclick="location.href=''"></button>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicios 7: Closure para contar</h2>
+                <div class="cuerpo">
+                    <p>
+                        Literalmente cuenta
+                    </p>
+                    <p>
+                    <h3 id="title">Ejemplo</h3>
+                    En este ejemplo, crearContador define una variable contador que no es accesible desde el exterior.
+                    Sin embargo, la función interna que se devuelve
+                    puede acceder y modificar contador, creando un estado privado.
+                    </p>
+                    <button id="contar">Ejecutar Operacion</button>
+                    <script>
+                        function crearContador() {
+                            let contador = 0;
+                            return function () {
+                                contador += 1;
+                                return contador;
+                            };
+                        }
+                        const contador = crearContador();
+                        const contar = document.getElementById('contar');
+                        contar.addEventListener('click', () => {
+                            alert("La funcion se ha ejecutado: " + (contador()));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <p>
+                <h3 id="title">Funcion</h3>
+                <p>
+                    const contador = crearContador();
+                </p>
+                function crearContador() {
+                let contador = 0;
+                return function () {
+                contador += 1;
+                return contador;
+                };
+                }
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio 8: Función de orden superior que retorna otra función</h2>
+                <div class="cuerpo">
+                    <p>
+                        Este ejercicio demuestra cómo crear una función que devuelve otra función, ilustrando el
+                        concepto de closures en JavaScript.
+                    </p>
+                    <p>
+                    <h3 id="title">Ejemplo</h3>
+                    Saluda en diferentes idiomas utilizando closures
+                    </p>
+                    <button id="Saludar-Esp">Saluda en Español</button>
+                    <button id="Saludar-Ing">Saluda en Ingles</button>
+                    <script>
+                        function crearSaludo(saludo) {
+                            return function (nombre) {
+                                return `${saludo}, ${nombre}!`;
+                            };
+                        }
+                        const saludarEnEspanol = crearSaludo('Hola');
+                        const saludarEnIngles = crearSaludo('Hello');
+
+                        const saludoS = document.getElementById('Saludar-Esp');
+                        saludoS.addEventListener('click', () => {
+                            alert((saludarEnEspanol('Juan')));
+                        });
+                        const saludoI = document.getElementById('Saludar-Ing');
+                        saludoI.addEventListener('click', () => {
+                            alert((saludarEnIngles('Cagarlos')));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <p>
+                <h3 id="title">Funcion</h3>
+                <p>
+                    const saludarEnEspanol = crearSaludo('Hola');
+                <p>const saludarEnIngles = crearSaludo('Hello');</p>
+                </p>
+                function crearSaludo(saludo) {
+                return function (nombre) {
+                return `${saludo}, ${nombre}!`;
+                };
+                }
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
