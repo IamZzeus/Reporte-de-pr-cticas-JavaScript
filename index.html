@@ -1,11 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Libreta Digital</title>
+    <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-    
+    <div class="container">
+        <header>
+            <h1>Reporte de Actividades Unidad 1</h1>
+            <p class="subtitle">Aqui se encuentran los ejercicios</p>
+        </header>
+
+        <div class="cards-container" id="cards-container">
+
+            <!-- Carta 1 -->
+            <div class="card" id="card-1">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-image">
+                            <img src="https://smilecomunicacion.com/wp-contenido/uploads/2025/03/manipular-dom-javascript.png.webp"
+                                alt="Ideas creativas">
+                        </div>
+                        <h3 class="card-title">Ejercicios básicos de manipulación del DOM con JavaScript</h3>
+                        <p class="card-content">El Modelo de Objetos de Documento (DOM) es una interfaz de programación
+                            para documentos web. </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- carta 2 -->
+            <div class="card" id="card-2">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-image">
+                            <img src="https://miro.medium.com/max/1400/1*Pf-f06mfFnteJeSk9a5cqA.png"
+                                alt="Ideas creativas">
+                        </div>
+                        <h3 class="card-title">Funciones en JavaScript</h3>
+                        <p class="card-content">Una función en JavaScript es similar a un procedimiento o un conjunto de
+                            instrucciones que realiza una tarea o calcula un valor, pero para que un procedimiento
+                            califique como función</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
 </body>
+<script>
+    // Carta 1
+    const boton = document.getElementById('card-1');
+    boton.addEventListener('click', () => {
+        window.location.href = "1-Manipulación del DOM.html";
+    });
+    // Carta 2
+    const boton2 = document.getElementById('card-2');
+    boton2.addEventListener('click', () => {
+        window.location.href = "2-Funciones.html";
+    });
+
+</script>
+
 </html>
