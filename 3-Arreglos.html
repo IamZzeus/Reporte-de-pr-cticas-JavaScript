@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arreglos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 class="Titulo">Arreglos en JavaScript</h1>
+    <div class="navegacion-izq">
+        <button onclick="location.href='2-Funciones.html'" ;>Funciones en JavaScript</button>
+    </div>
+    <div class="navegacion-der">
+        <button onclick="location.href=''"></button>
+    </div>
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Iteración sobre Arreglos</h2>
+                <div class="cuerpo">
+                    <p>Una técnica fundamental en el manejo de arreglos es la iteración. Veamos un ejemplo usando un
+                        bucle for:
+                    </p>
+                    <p>Este método permite recorrer cada elemento del arreglo de forma secuencial.</p>
+                    <button id="Ver-Arreglo">Ver Arreglo</button>
+                    <script>
+                        const frutas = ["manzana", "banana", "naranja", "uva"];
+                        for (let i = 0; i < frutas.length; i++) {
+                            console.log(frutas[i]);
+                        }
+                        const Ver = document.getElementById('Ver-Arreglo');
+                        Ver.addEventListener('click', () => {
+                            alert(frutas);
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-04 092953.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Métodos de Arreglos</h2>
+                <div class="cuerpo">
+                    <h3>Map</h3>
+                    <p>El método map crea un nuevo arreglo con los resultados de llamar a una función para cada
+                        elemento. Por ejemplo:
+                        <button id="FunMap">Ver Arreglo</button>
+                    </p>
+                    <h3>Filter</h3>
+                    <p>Filter crea un nuevo arreglo con todos los elementos que pasan la prueba implementada por la
+                        función proporcionada: <button id="FunFilter">Ver Arreglo</button></p>
+                    <h3>Reduce</h3>
+                    <p>Reduce ejecuta una función reductora sobre cada elemento de un array, devolviendo como resultado
+                        un único valor: <button id="FunReduce">Ver Arreglo</button></p>
+                    <script>
+                        // Map
+                        const numeros = [1, 2, 3, 4, 5];
+                        const numerosDuplicados = numeros.map(num => num * 2);
+                        const VerMap = document.getElementById('FunMap');
+                        VerMap.addEventListener('click', () => {
+                            alert(numerosDuplicados);
+                        });
+                        // Filter
+                        const numerosFiltrados = numeros.filter(num => num > 2);
+                        const VerFil = document.getElementById('FunFilter');
+                        VerFil.addEventListener('click', () => {
+                            alert(numerosFiltrados);
+                        });
+                        // Reduce
+                        const suma = numeros.reduce((total, num) => total + num, 0);
+                        const VerRed = document.getElementById('FunReduce');
+                        VerRed.addEventListener('click', () => {
+                            alert(suma);
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-04 093947.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio: Encontrar el Mayor Número</h2>
+                <div class="cuerpo">
+                    <p>Veamos un ejercicio resuelto para encontrar el mayor número en un arreglo:</p>
+                    <p>Esta función utiliza el método reduce para comparar cada número con el máximo actual, devolviendo
+                        el mayor encontrado.</p>
+                    <button id="Ver-Mayor">Ver Arreglo</button>
+                    <script>
+                        function encontrarMayor(arr) {
+                            return arr.reduce((max, num) => (num > max ? num : max), arr[0]);
+                        }
+                        const numeros1 = [10, 5, 8, 20, 15];
+                        const Arrmayor = document.getElementById('Ver-Mayor');
+                        Arrmayor.addEventListener('click', () => {
+                            alert(encontrarMayor(numeros1));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-04 094343.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Creación y Acceso a Propiedades de Objetos</h2>
+                <div class="cuerpo">
+                    <p>Los objetos en JavaScript son estructuras que permiten almacenar
+                        datos en pares clave-valor. Veamos un ejemplo:
+                    </p>
+                    <button id="Ver-Persona">Ver Arreglo</button>
+                    <p>Podemos acceder a las propiedades de un objeto usando la notación
+                        de punto o la notación de corchetes.</p>
+                    <script>
+                        const persona = { nombre: "Juan", edad: 30, ciudad: "Madrid" };
+                        console.log(persona.nombre);
+                        const VerPersona = document.getElementById('Ver-Persona');
+                        VerPersona.addEventListener('click', () => {
+                            alert(persona.nombre + ", " + persona.edad);
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-04 094651.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Iteración sobre Propiedades de Objetos</h2>
+                <div class="cuerpo">
+                    <p>Para recorrer las propiedades de un objeto, podemos usar un bucle for...in:
+                    </p>
+                    <button id="Iteracion">Ver Arreglo</button>
+                    <p>Este método nos permite acceder tanto a las claves como a los valores de cada propiedad del
+                        objeto.</p>
+                    <script>
+                        const Iteracion = document.getElementById('Iteracion');
+                        Iteracion.addEventListener('click', () => {
+                            const libro = { titulo: "El principito", autor: "Antoine de Saint-Exupéry", año: 1943 };
+                            for (let propiedad in libro) {
+                                alert(`${propiedad}: ${libro[propiedad]}`);
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-08 193940.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio: Contar Propiedades de un Objeto</h2>
+                <div class="cuerpo">
+                    <p>Escribir una función que tome un objeto y devuelva el número de propiedades que tiene.
+                    </p>
+                    <button id="CPO">Ver Arreglo</button>
+                    <script>
+                        function contarPropiedades(obj) {
+                            return Object.keys(obj).length;
+                        }
+                        const CPO = document.getElementById('CPO');
+                        const coche = {
+                            marca: "Toyota", modelo: "Corolla",
+                            año: 2020
+                        };
+                        CPO.addEventListener('click', () => {
+                            alert(contarPropiedades(coche));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-08 194319.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Transformación de Arreglos de Objetos</h2>
+                <div class="cuerpo">
+                    <p>Un ejercicio común es transformar un arreglo de objetos para extraer una propiedad específica:
+                    </p>
+                    <button id="Transformar">Ver Arreglo</button>
+                    <p>Esta función utiliza el método map para crear un nuevo arreglo con solo los nombres de los
+                        usuarios.</p>
+                    <script>
+                        const usuarios = [{ nombre: "Ana", edad: 25 }, { nombre: "Luis", edad: 30 }, {
+                            nombre: "María", edad: 28
+                        }];
+                        function obtenerNombres(arr) {
+                            return arr.map(usuario => usuario.nombre);
+                        }
+                        const Transformar = document.getElementById('Transformar');
+                        Transformar.addEventListener('click', () => {
+                            alert(obtenerNombres(usuarios));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-08 194619.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Filtrado de Arreglos de Objetos</h2>
+                <div class="cuerpo">
+                    <p>Otro ejercicio útil es filtrar un arreglo de objetos basado en una condición:
+                    </p>
+                    <button id="Filt">Ver Arreglo</button>
+                    <p>Esta función utiliza el método map para crear un nuevo arreglo con solo los nombres de los
+                        usuarios.</p>
+                    <script>
+                        const usuario = [{ nombre: "Ana", edad: 25 }, { nombre: "Luis", edad: 30 }, {
+                            nombre: "María", edad: 28
+                        }];
+                        function filtrarUsuarios(arr) {
+                            return arr.filter(usuario => usuario.edad > 27);
+                        }
+                        const Filt = document.getElementById('Filt');
+                        Filt.addEventListener('click', () => {
+                            alert(JSON.stringify(filtrarUsuarios(usuario)));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-08 212216.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Agrupación por Propiedad</h2>
+                <div class="cuerpo">
+                    <p>Escribir una función que tome un arreglo de objetos y agrupe los objetos por una propiedad
+                        específica.
+                    </p>
+                    <button id="AgrupP">Ver Arreglo</button>
+                    <script>
+                        const productos = [{ nombre: "camiseta", categoria: "ropa" }, { nombre: "pantalón", categoria: "ropa" }, {
+                            nombre: "zapatos", categoria: "calzado"
+                        }, { nombre: "sandalias", categoria: "calzado" }];
+                        function agruparPorCategoria(arr) {
+                            return arr.reduce((grupo, producto) => {
+                                const categoria = producto.categoria;
+                                if (!grupo[categoria]) {
+                                    grupo[categoria] = [];
+                                }
+                                grupo[categoria].push(producto);
+                                return grupo;
+                            }, {});
+                        }
+                        const AgrupP = document.getElementById('AgrupP');
+                        AgrupP.addEventListener('click', () => {
+                            alert(JSON.stringify(agruparPorCategoria(productos)));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-08 212549.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Personal 1</h2>
+                <div class="cuerpo">
+                    <p>Crea una función de tipo operaciones con arreglos map, filter y reduce.
+                    </p>
+                    <p>El código define una función llamada operacionesConArreglos que recibe un arreglo de números y
+                        realiza tres operaciones distintas con los métodos de arreglos:
+                    <ul>
+                        <li>map: crea un nuevo arreglo con los cuadrados de cada número.</li>
+                        <li>filter: genera un nuevo arreglo que contiene solo los números pares.</li>
+                        <li> reduce: calcula la suma total de todos los números del arreglo.</li>
+                    </ul>
+                    <button id="Personal1">Ver Arreglo</button>
+                    </p>
+                    <script>
+                        function operacionesConArreglos(numeros) {
+                            // 1. Map → eleva cada número al cuadrado
+                            const cuadrados = numeros.map(n => n * n);
+
+                            // 2. Filter → conserva solo los pares
+                            const pares = numeros.filter(n => n % 2 === 0);
+
+                            // 3. Reduce → obtiene la suma total
+                            const suma = numeros.reduce((acc, n) => acc + n, 0);
+
+                            return {
+                                originales: numeros,
+                                cuadrados: cuadrados,
+                                pares: pares,
+                                suma: suma
+                            };
+                        }
+                        // Ejemplo de uso:
+                        const arreglo = [1, 2, 3, 4, 5, 6];
+                        const resultado = operacionesConArreglos(arreglo);
+                        const Personal1 = document.getElementById('Personal1');
+                        Personal1.addEventListener('click', () => {
+                            alert(JSON.stringify(resultado));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-08 213008.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Personal 2</h2>
+                <div class="cuerpo">
+                    <p>Crea una función para manipulación de objetos.
+                    </p>
+                    <p>La función manipularObjeto recibe como parámetro un objeto (en este caso, una persona) y realiza
+                        varias operaciones sobre él:
+                    <ol>
+                        <li>Lee propiedades: muestra en consola el nombre y la edad del objeto recibido.</li>
+                        <li>Agrega una propiedad nueva llamada ocupacion con el valor "Estudiante".</li>
+                        <li>Modifica una propiedad existente: incrementa en 1 el valor de la edad.</li>
+                        <li>Elimina una propiedad llamada temporal, en caso de que exista en el objeto.</li>
+                        <li>Devuelve el objeto modificado.</li>
+                    </ol>
+                    <button id="Personal2">Ver Arreglo</button>
+                    </p>
+                    <script>
+                        function manipularObjeto(persona) {
+                            // 1. Acceder a propiedades
+                            console.log("Nombre:", persona.nombre);
+                            console.log("Edad:", persona.edad);
+                            // 2. Agregar nueva propiedad
+                            persona.ocupacion = "Estudiante";
+                            // 3. Modificar propiedad existente
+                            persona.edad += 1; // le sumamos un año
+                            // 4. Eliminar una propiedad
+                            delete persona.temporal;
+                            // 5. Devolver objeto modificado
+                            return persona;
+                        }
+                        // Ejemplo de uso:
+                        let usuariop = {
+                            nombre: "Ana",
+                            edad: 25,
+                            temporal: "dato innecesario"
+                        };
+                        const Personal2 = document.getElementById('Personal2');
+                        Personal2.addEventListener('click', () => {
+                            alert("Antes:" + JSON.stringify(usuariop));
+                            const resultado = manipularObjeto(usuariop);
+                            alert("Después:" + JSON.stringify(resultado));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-08 213704.png">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -104,10 +104,13 @@ h1 {
 #card-1{
     background-color: rgb(248, 193, 121);
 }
-#card-2,#card-3,#card-4{
+#card-2{
     background-color: rgba(56, 229, 171, 0.549);
 }
 
+#card-3{
+    background-color: rgb(242, 248, 128);
+}
 /* Animaciones */
 .card {
     animation: fadeIn 0.5s ease-out;
