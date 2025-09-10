@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceptos básicos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 class="Titulo" onclick="location.href='index.html'">Conceptos básico de POO en JavaScript</h1>
+    <div class="navegacion-izq">
+        <button onclick="location.href='5-Módulos en JavaScript.html'" ;>Módulos en JavaScript</button>
+    </div>
+    <div class="navegacion-der">
+        <button onclick="location.href='index.html'">Regresar al Inicio</button>
+    </div>
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Iteración sobre Arreglos</h2>
+                <div class="cuerpo">
+                    <p>Una técnica fundamental en el manejo de arreglos es la iteración. Veamos un ejemplo usando un
+                        bucle for:
+                    </p>
+                    <p>Este método permite recorrer cada elemento del arreglo de forma secuencial.</p>
+                    <button id="Ver-Arreglo">Ver Arreglo</button>
+                    <script>
+                        const frutas = ["manzana", "banana", "naranja", "uva"];
+                        for (let i = 0; i < frutas.length; i++) {
+                            console.log(frutas[i]);
+                        }
+                        const Ver = document.getElementById('Ver-Arreglo');
+                        Ver.addEventListener('click', () => {
+                            alert(frutas);
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-04 092953.png">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

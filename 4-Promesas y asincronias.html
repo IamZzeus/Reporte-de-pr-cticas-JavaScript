@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promesas y asincronias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 class="Titulo" onclick="location.href='index.html'">Promesas y Asincronía</h1>
+    <div class="navegacion-izq">
+        <button onclick="location.href='3-Arreglos.html'" ;>Arreglos en JavaScript</button>
+    </div>
+    <div class="navegacion-der">
+        <button onclick="location.href='5-Módulos en JavaScript.html'">Módulos en JavaScript</button>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Callbacks</h2>
+                <div class="cuerpo">
+                    <p>Un callback en JavaScript es una función que se pasa como argumento a otra función y se
+                        ejecuta después de que se completa la tarea de la función que la recibió. Los callbacks son
+                        una parte fundamental de la programación asíncrona en JavaScript, permitiendo que el
+                        código continúe ejecutándose mientras se espera que se completen operaciones como
+                        solicitudes de red o temporizadores
+                    </p>
+                    <p>Ejemplo de un callback simple:</p>
+                    <script>
+                        // Definimos una función que realiza la suma
+                        function sumar(a, b, callback) {
+                            const resultado = a + b; // Realiza la suma
+                            callback(resultado); // Llama al callback con el resultado
+                        }
+                        // Definimos un callback que maneja el resultado
+                        function mostrarResultado(resultado) {
+                            document.write("La suma es: ", resultado);
+                        }
+                        // Llamamos a la función sumar y pasamos los números y el callback
+                        sumar(5, 10, mostrarResultado);
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-10 110520.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejemplo 2</h2>
+                <div class="cuerpo">
+                    <p>Un callback en JavaScript es una función que se pasa como argumento a otra función y se
+                        ejecuta después de que se completa la tarea de la función que la recibió. Los callbacks son
+                        una parte fundamental de la programación asíncrona en JavaScript, permitiendo que el
+                        código continúe ejecutándose mientras se espera que se completen operaciones como
+                        solicitudes de red o temporizadores
+                    </p>
+                    <p>Ejemplo de un callback simple:</p>
+                    <h2>Nombre y Edad</h2>
+                    <button id="vnomb">Ver ejemplo</button>
+                    <script>
+                        // Definimos una función que simula una operación asíncrona
+                        function obtenerDatos(callback) {
+                            setTimeout(() => {
+                                const datos = { nombre: "Juan", edad: 30 };
+                                // Llamamos al callback con los datos obtenidos
+                                callback(datos);
+                            }, 2000); // Simulamos un retraso de 2 segundos
+                        }
+
+                        // Definimos un callback que maneja los datos
+                        function mostrarDatos(datos) {
+                            alert(`Nombre: ${datos.nombre}, Edad: ${datos.edad}`);
+                        }
+
+                        const button = document.getElementById('vnomb');
+                        button.addEventListener('click', () => {
+                            obtenerDatos(mostrarDatos);
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-10 112917.png">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

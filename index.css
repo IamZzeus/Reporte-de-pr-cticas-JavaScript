@@ -109,7 +109,16 @@ h1 {
 }
 
 #card-3{
-    background-color: rgb(242, 248, 128);
+    background-color: rgb(248, 128, 128);
+}
+#card-4{
+    background-color: rgb(128, 248, 144);
+}
+#card-5{
+    background-color: rgb(248, 128, 208);
+}
+#card-6{
+    background-color: rgb(128, 148, 248);
 }
 /* Animaciones */
 .card {
