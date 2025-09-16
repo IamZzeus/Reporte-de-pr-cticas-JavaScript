@@ -63,6 +63,7 @@
                     </p>
                     <p>Ejemplo de un callback simple:</p>
                     <h2>Nombre y Edad</h2>
+                    <p>Tiene un retraso de 3 segundos</p>
                     <button id="vnomb">Ver ejemplo</button>
                     <script>
                         // Definimos una función que simula una operación asíncrona
@@ -88,6 +89,163 @@
             </div>
             <div class="ladoDer">
                 <img src="/Imagenes/Screenshot 2025-09-10 112917.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Uso de promesas</h2>
+                <div class="cuerpo">
+                    <p>Una promesa en JavaScript es un objeto que representa la eventual finalización (o falla) de
+                        una operación asíncrona y su valor resultante. Las promesas son una forma de manejar
+                        operaciones asíncronas de manera más legible y manejable que los callbacks.
+                    </p>
+                    <p>Ejemplo</p>
+                    <script>
+                        // Crear una nueva promesa
+                        const miPromesa = new Promise((resolve, reject) => {
+                            // Simular una operación asíncrona (por ejemplo, una solicitud de red)
+                            const exito = true; // Cambia a false para simular un error
+                            if (exito) {
+                                resolve("Operación exitosa!"); // Se resuelve la promesa
+                            } else {
+                                reject("Ocurrió un error."); // Se rechaza la promesa
+                            }
+                        });
+                        // Usar la promesa
+                        miPromesa
+                            .then((resultado) => {
+                                document.write(resultado); // Manejar el resultado si la promesa se resuelve
+                            })
+                            .catch((error) => {
+                                console.error(error); // Manejar el error si la promesa se rechaza
+                            });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-10 172038.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejemplo 2 promesas</h2>
+                <div class="cuerpo">
+                    <p>Tomando datos de una API de prueba de internet.
+                    </p>
+                    <p>Ejemplo</p>
+                    <button id="promesa">Ver datos</button>
+                    <script>
+                        function obtenerPosts() {
+                            return new Promise((resolve, reject) => {
+                                fetch('https://jsonplaceholder.typicode.com/posts')
+                                    .then(response => {
+                                        if (!response.ok) {
+                                            throw new Error('Error en la llamada a la API');
+                                        }
+                                        return response.json();
+                                    })
+                                    .then(data => resolve(data))
+                                    .catch(error => reject(error));
+                            });
+                        }
+                        const button2 = document.getElementById('promesa');
+                        obtenerPosts()
+                            .then(posts => {
+                                button2.addEventListener('click', () => {
+                                    alert(JSON.stringify(posts));
+                                });
+                            })
+                            .catch(error => {
+                                button2.addEventListener('click', () => {
+                                    alert(JSON.stringify(posts));
+                                });
+                            });
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-10 172832.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Simplificando la promesa</h2>
+                <div class="cuerpo">
+                    <p>Ahora mostramos los post en una lista dinámica en html
+                    </p>
+                    <h1>Post</h1>
+                    <ul id="posts"></ul>
+                    <script>
+                        const obtenerPosts1 = () => {
+                            fetch('https://jsonplaceholder.typicode.com/posts')
+                                .then(response => response.json())
+                                .then(data => mostrarPosts(data))
+                                .catch(error => console.log('Error:', error));
+                        };
+                        // Función para mostrar los posts en el HTML
+                        const sonUnChingo = 5;
+                        const mostrarPosts = (posts) => {
+                            const postsUl = document.getElementById('posts');
+                            postsUl.innerHTML = '';
+                            // Limpiamos la lista antes de agregar nuevos posts
+                            posts.slice(0, 5).forEach(post => {
+                                const li = document.createElement('li');
+                                li.textContent = `${post.id}. ${post.title}`;
+                                postsUl.appendChild(li);
+                            });
+                        };
+                        // Llamamos a la función para obtener y mostrar los posts
+                        obtenerPosts1();
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-10 173432.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Uso de async/await</h2>
+                <div class="cuerpo">
+                    <p>async y await son palabras clave que permiten escribir código asincrónico de manera
+                        más clara y estructurada.
+                    <ul>
+                        <li>async: Se usa para declarar una función asincrónica</li>
+                        <li>await: Se usa dentro de una función asincrónica para esperar el resultado de una
+                            promesa</li>
+                    </ul>
+                    </p>
+                    <script>
+                        async function llamarApiConAsyncAwait() {
+                            try {
+                                let datillo = await fetch('https://jsonplaceholder.typicode.com/posts');
+                                if (!datillo.ok) {
+                                    throw new Error('Error en la llamada a la API');
+                                }
+                                let posts = await datillo.json();
+                                console.log('Posts obtenidos ',posts);
+                            } catch (error) {
+                                console.log('Error:', error);
+                            }
+                            llamarApiConAsyncAwait();
+                        }
+                    </script>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-10 110520.png">
             </div>
         </div>
     </div>
