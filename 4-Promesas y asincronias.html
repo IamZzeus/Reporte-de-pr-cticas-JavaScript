@@ -185,27 +185,34 @@
                     <h1>Post</h1>
                     <ul id="posts"></ul>
                     <script>
+                        // Número máximo de posts a mostrar
+                        const sonUnChingo = 5;
+
+                        // Función para obtener los posts desde la API
                         const obtenerPosts1 = () => {
                             fetch('https://jsonplaceholder.typicode.com/posts')
                                 .then(response => response.json())
-                                .then(data => mostrarPosts(data))
+                                .then(data => mostrarPosts1(data))
                                 .catch(error => console.log('Error:', error));
                         };
+
                         // Función para mostrar los posts en el HTML
-                        const sonUnChingo = 5;
-                        const mostrarPosts = (posts) => {
+                        const mostrarPosts1 = (posts) => {
                             const postsUl = document.getElementById('posts');
-                            postsUl.innerHTML = '';
-                            // Limpiamos la lista antes de agregar nuevos posts
-                            posts.slice(0, 5).forEach(post => {
+                            postsUl.innerHTML = ''; // Limpiamos la lista
+
+                            // Mostrar solo los primeros "sonUnChingo" posts
+                            posts.slice(0, sonUnChingo).forEach(post => {
                                 const li = document.createElement('li');
                                 li.textContent = `${post.id}. ${post.title}`;
                                 postsUl.appendChild(li);
                             });
                         };
-                        // Llamamos a la función para obtener y mostrar los posts
+
+                        // Llamada inicial
                         obtenerPosts1();
                     </script>
+
                 </div>
             </div>
             <div class="ladoDer">
@@ -226,8 +233,12 @@
                         <li>await: Se usa dentro de una función asincrónica para esperar el resultado de una
                             promesa</li>
                     </ul>
-                    </p>
+                    <p>Ejemplo</p>
+                    <p>Lista de posts con Async/Await:</p>
+                    <ul id="posts2"></ul>
+
                     <script>
+                        // Llamada a la API con Async/Await (SIN recursión)
                         async function llamarApiConAsyncAwait() {
                             try {
                                 let datillo = await fetch('https://jsonplaceholder.typicode.com/posts');
@@ -235,17 +246,176 @@
                                     throw new Error('Error en la llamada a la API');
                                 }
                                 let posts = await datillo.json();
-                                console.log('Posts obtenidos ',posts);
+                                console.log('Posts obtenidos ', posts);
                             } catch (error) {
                                 console.log('Error:', error);
                             }
-                            llamarApiConAsyncAwait();
                         }
+
+                        // Obtener posts y mostrarlos en el HTML
+                        async function obtenerPostsConAsyncAwait() {
+                            try {
+                                let response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5');
+                                if (!response.ok) {
+                                    throw new Error('Error en la llamada a la API');
+                                }
+                                let posts = await response.json();
+                                mostrarPosts2(posts); // ✅ Llamamos a una función que apunta a otro <ul>
+                            } catch (error) {
+                                console.log('Error:', error);
+                            }
+                        }
+
+                        // Mostrar posts en un <ul> distinto para no chocar con el otro código
+                        function mostrarPosts2(posts) {
+                            const postsUl = document.getElementById('posts2');
+                            postsUl.innerHTML = ''; // limpiar antes de agregar
+                            posts.forEach(post => {
+                                const li = document.createElement('li');
+                                li.textContent = post.title;
+                                postsUl.appendChild(li);
+                            });
+                        }
+
+                        // Llamadas iniciales
+                        llamarApiConAsyncAwait();
+                        obtenerPostsConAsyncAwait();
                     </script>
                 </div>
             </div>
             <div class="ladoDer">
-                <img src="/Imagenes/Screenshot 2025-09-10 110520.png">
+                <img src="/Imagenes/Screenshot 2025-09-16 145632.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio: Mostrar Usuarios en una Página Web</h2>
+                <div class="cuerpo">
+                    <p>El objetivo de este ejercicio es crear una página web que obtenga una lista de usuarios
+                        desde una API y muestre sus nombres en una lista.
+                    <h1>Usuarios</h1>
+                    <ul id="users"></ul>
+                    <script src="/Modulos/app.js"></script>
+                    </p>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-16 150349.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio: Personal</h2>
+                <div class="cuerpo">
+                    <p>Cambiamos los nombres por los emails
+                    <h1>Emails</h1>
+                    <ul id="users2"></ul>
+                    <script src="/Modulos/email.js"></script>
+                    </p>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-16 151133.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio Personal Ejemplo con Promesas</h2>
+                <div class="cuerpo">
+                    <p>Usamos promesas encadenadas para obtener, procesar y mostrar los usuarios en pantalla.
+                    <h2>Lista de Usuarios (Promesas)</h2>
+                    <ul id="usersPromise"></ul>
+                    <script>
+                        // Función para obtener usuarios con Promesas
+                        const obtenerUsuariosPromise = () => {
+                            fetch('https://jsonplaceholder.typicode.com/users')
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('Error en la llamada a la API');
+                                    }
+                                    return response.json();
+                                })
+                                .then(users => mostrarUsuariosPromise(users))
+                                .catch(error => console.log('Error:', error));
+                        };
+
+                        // Función para mostrar usuarios
+                        const mostrarUsuariosPromise = (users) => {
+                            const usersUl = document.getElementById('usersPromise');
+                            usersUl.innerHTML = '';
+                            users.slice(0, 5).forEach(user => {
+                                const li = document.createElement('li');
+                                li.textContent = `${user.name} - ${user.email}`;
+                                usersUl.appendChild(li);
+                            });
+                        };
+
+                        // Llamamos a la función
+                        obtenerUsuariosPromise();
+                    </script>
+
+                    </p>
+                </div>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-16 151406.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="contenido">
+            <div class="ladoIzq">
+                <h2 class="titulo">Ejercicio: Personal</h2>
+                <div class="cuerpo">
+                    <p>
+                        Hacemos lo mismo que el anterior, pero en vez de encadenar .then(), usa la sintaxis async/await
+                        que es más legible y clara.
+                    <h2>Lista de Usuarios (Async/Await)</h2>
+                    <ul id="usersAsync"></ul>
+                    </p>
+                </div>
+                <script>
+                    // Función para obtener usuarios con async/await
+                    async function obtenerUsuariosAsync() {
+                        try {
+                            let response = await fetch('https://jsonplaceholder.typicode.com/users');
+                            if (!response.ok) {
+                                throw new Error('Error en la llamada a la API');
+                            }
+                            let users = await response.json();
+                            mostrarUsuariosAsync(users);
+                        } catch (error) {
+                            console.log('Error:', error);
+                        }
+                    }
+
+                    // Función para mostrar usuarios
+                    function mostrarUsuariosAsync(users) {
+                        const usersUl = document.getElementById('usersAsync');
+                        usersUl.innerHTML = '';
+                        users.slice(0, 5).forEach(user => {
+                            const li = document.createElement('li');
+                            li.textContent = `${user.name} - ${user.email}`;
+                            usersUl.appendChild(li);
+                        });
+                    }
+
+                    // Llamamos a la función
+                    obtenerUsuariosAsync();
+                </script>
+            </div>
+            <div class="ladoDer">
+                <img src="/Imagenes/Screenshot 2025-09-16 151650.png">
             </div>
         </div>
     </div>
